@@ -19,7 +19,7 @@ session = requests.Session()
 # Авторизация
 response = session.post(url, data=payload)
 
-# Проверка успешности авторизации
+# Проверка успешности авторизаци
 if response.status_code == 200 and 'phpMyAdmin' in response.text:
     print("Авторизация успешна.")
 else:
