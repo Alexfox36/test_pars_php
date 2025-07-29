@@ -30,14 +30,17 @@ else:
 db_url = f'{url}/index.php?route=/table/structure&db=testDB'
 db_response = session.get(db_url)
 
+
 # Проверка успешности перехода
 if db_response.status_code != 200:
     print("Ошибка перехода к базе данных.")
     exit()
 
+
 # Извлечение содержимого таблицы users
 soup = BeautifulSoup(db_response.text, 'html.parser')
-table = soup.find('table', {'id': 'table_users'})  # Найти таблицу users по ID (может быть другим)
+table = soup.find('table', {'data-uniqueid': '250820259'})  # Найти таблицу users по ID (может быть другим)
+
 
 if not table:
     print("Таблица users не найдена.")
